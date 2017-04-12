@@ -30,6 +30,7 @@
     }];
 ```
 * 方式二：需要delegate<br>
+
 ** 添加代理<br>
 ```
     @interface FirstViewController ()<LXQRCodeControllerDelegate>
@@ -43,7 +44,7 @@
     [self presentViewController:navVC animated:YES completion:^{
     }];
 ```
-** 代理方法
+** 代理方法<br>
 ```
     #pragma mark -- Delegate
     - (void)qrcodeController:(LXQRCode_VC *)qrcodeController readerScanResult:(NSString *)readerScanResult type:(LXQRCodeResultType)resultType
