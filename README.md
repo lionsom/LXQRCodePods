@@ -34,7 +34,7 @@
 ```
     @interface FirstViewController ()<LXQRCodeControllerDelegate>
 ```
-具体使用<br>
+** 具体使用<br>
 ```
     LXQRCode_VC * QRCodeVC = [[LXQRCode_VC alloc]init];
     QRCodeVC.isDelegate = YES;
@@ -43,7 +43,7 @@
     [self presentViewController:navVC animated:YES completion:^{
     }];
 ```
-代理方法
+** 代理方法
 ```
     #pragma mark -- Delegate
     - (void)qrcodeController:(LXQRCode_VC *)qrcodeController readerScanResult:(NSString *)readerScanResult type:(LXQRCodeResultType)resultType
