@@ -8,8 +8,10 @@ It's a simple demo about QRCode. 可以扫描二维码、以及识别图片中�
     ```pod "LXQRCodePods"```<br>
 
 1.2 项目添加权限 info.plist 中<br>
-    ```Privacy - Camera Usage Description```<br>
-    ```Privacy - Photo Library Usage Description```<br>
+```
+    Privacy - Camera Usage Description
+    Privacy - Photo Library Usage Description
+```
 
 第二步：使用<br>
 2.1 导入头文件<br>
