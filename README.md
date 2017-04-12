@@ -1,7 +1,7 @@
 # LXQRCodePods
 ## It's a simple demo about QRCode. 可以扫描二维码、以及识别图片中的二维码
 
-
+## 最新版本：0.0.5
 
 ### 第一步：导入<br>
 1.1 导入CocoaPods<br>
@@ -28,10 +28,10 @@
     [self presentViewController:navVC animated:YES completion:^{
     }];
 ```
-* 方式二：需要delegate
-添加代理
+* 方式二：需要delegate<br>
+添加代理<br>
 ```@interface FirstViewController ()<LXQRCodeControllerDelegate>```<br>
-具体使用
+具体使用<br>
 ```
 #pragma mark -- Delegate
 - (void)qrcodeController:(LXQRCode_VC *)qrcodeController readerScanResult:(NSString *)readerScanResult type:(LXQRCodeResultType)resultType
@@ -41,4 +41,6 @@
 }
 ```
 
+### 在此参考了GitHub上的一些项目，如有侵权，请及时与我联系。<br>
+### 邮箱：lionsom_lin@qq.com <br>
 
