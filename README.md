@@ -16,7 +16,9 @@
 ### 第二步：使用<br>
 2.1 导入头文件<br>
     ```#import "LXQRCode_VC.h"```<br>
-2.2 在点击事件回调中
+    
+2.2 在点击事件回调中 
+* 方式一：不需要Delegate
 ```
     LXQRCode_VC * QRCodeVC = [[LXQRCode_VC alloc]init];
     QRCodeVC.isDelegate = NO;
@@ -26,6 +28,17 @@
     [self presentViewController:navVC animated:YES completion:^{
     }];
 ```
-
+* 方式二：需要delegate
+添加代理
+```@interface FirstViewController ()<LXQRCodeControllerDelegate>```<br>
+具体使用
+```
+#pragma mark -- Delegate
+- (void)qrcodeController:(LXQRCode_VC *)qrcodeController readerScanResult:(NSString *)readerScanResult type:(LXQRCodeResultType)resultType
+{
+    NSLog(@"FirstViewController == %@", readerScanResult);
+    NSLog(@"FirstViewController == %lu", (unsigned long)resultType);
+}
+``
 
 
