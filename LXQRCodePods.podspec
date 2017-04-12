@@ -92,7 +92,7 @@ Pod::Spec.new do |s|
   #
 
   s.source_files  = "LXQRCodePods", "LXQRCodePods/*"
-  s.resource = "LXQRCodePods/STQRCodeController.bundle"
+  s.resource = "LXQRCodePods/LXQRCodeResources.bundle"
   # s.exclude_files = "Classes/Exclude"
 
   # s.public_header_files = "Classes/**/*.h"
