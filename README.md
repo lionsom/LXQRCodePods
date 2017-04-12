@@ -39,6 +39,6 @@
     NSLog(@"FirstViewController == %@", readerScanResult);
     NSLog(@"FirstViewController == %lu", (unsigned long)resultType);
 }
-``
+```
 
 
