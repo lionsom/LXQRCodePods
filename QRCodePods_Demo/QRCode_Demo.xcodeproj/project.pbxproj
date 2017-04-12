@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		460DAD9E1E9E0724006AC410 /* LXQRCodeResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 460DAD9D1E9E0724006AC410 /* LXQRCodeResources.bundle */; };
 		461F30371E9666260006E8F3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 461F30361E9666260006E8F3 /* main.m */; };
 		461F303A1E9666260006E8F3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 461F30391E9666260006E8F3 /* AppDelegate.m */; };
 		461F303D1E9666260006E8F3 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 461F303C1E9666260006E8F3 /* FirstViewController.m */; };
@@ -17,10 +18,10 @@
 		46649C3C1E9C7E6800B61B37 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46649C3B1E9C7E6800B61B37 /* AVFoundation.framework */; };
 		46C06A261E9CFD6E002ED310 /* LXQRCode_VC.m in Sources */ = {isa = PBXBuildFile; fileRef = 46C06A221E9CFD6E002ED310 /* LXQRCode_VC.m */; };
 		46C06A271E9CFD6E002ED310 /* ShowQRCodeResult_VC.m in Sources */ = {isa = PBXBuildFile; fileRef = 46C06A241E9CFD6E002ED310 /* ShowQRCodeResult_VC.m */; };
-		46C06A281E9CFD6E002ED310 /* STQRCodeController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 46C06A251E9CFD6E002ED310 /* STQRCodeController.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		460DAD9D1E9E0724006AC410 /* LXQRCodeResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = LXQRCodeResources.bundle; path = LXQRCode/LXQRCodeResources.bundle; sourceTree = "<group>"; };
 		461F30321E9666260006E8F3 /* QRCode_Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QRCode_Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		461F30361E9666260006E8F3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		461F30381E9666260006E8F3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -38,7 +39,6 @@
 		46C06A221E9CFD6E002ED310 /* LXQRCode_VC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXQRCode_VC.m; path = LXQRCode/LXQRCode_VC.m; sourceTree = "<group>"; };
 		46C06A231E9CFD6E002ED310 /* ShowQRCodeResult_VC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShowQRCodeResult_VC.h; path = LXQRCode/ShowQRCodeResult_VC.h; sourceTree = "<group>"; };
 		46C06A241E9CFD6E002ED310 /* ShowQRCodeResult_VC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShowQRCodeResult_VC.m; path = LXQRCode/ShowQRCodeResult_VC.m; sourceTree = "<group>"; };
-		46C06A251E9CFD6E002ED310 /* STQRCodeController.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = STQRCodeController.bundle; path = LXQRCode/STQRCodeController.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,7 +100,7 @@
 		46649C391E9C7E0200B61B37 /* LXQRCode */ = {
 			isa = PBXGroup;
 			children = (
-				46C06A251E9CFD6E002ED310 /* STQRCodeController.bundle */,
+				460DAD9D1E9E0724006AC410 /* LXQRCodeResources.bundle */,
 				46C06A211E9CFD6E002ED310 /* LXQRCode_VC.h */,
 				46C06A221E9CFD6E002ED310 /* LXQRCode_VC.m */,
 				46C06A231E9CFD6E002ED310 /* ShowQRCodeResult_VC.h */,
@@ -177,8 +177,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				461F30481E9666260006E8F3 /* LaunchScreen.storyboard in Resources */,
+				460DAD9E1E9E0724006AC410 /* LXQRCodeResources.bundle in Resources */,
 				461F30451E9666260006E8F3 /* Assets.xcassets in Resources */,
-				46C06A281E9CFD6E002ED310 /* STQRCodeController.bundle in Resources */,
 				461F30431E9666260006E8F3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

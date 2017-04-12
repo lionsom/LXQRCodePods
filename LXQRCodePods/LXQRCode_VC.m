@@ -305,7 +305,8 @@
 
 - (UIImageView *)imageScanZone{
     if (!_imageScanZone) {
-        _imageScanZone = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"STQRCodeController.bundle/st_scanBackground@2x"]];
+        UIImage * image = [UIImage imageNamed:[[self myBundle] pathForResource:@"st_scanBackground@2x" ofType:@"png"]];
+        _imageScanZone = [[UIImageView alloc]initWithImage:image];
         _imageScanZone.frame = self.rectScanZone;
     }
     return _imageScanZone;
@@ -319,7 +320,8 @@
         CGFloat viewX = (Screen_W - viewW)/2;
         CGFloat viewY = (Screen_H - viewW)/2;
         _imageMove = [[UIImageView alloc]initWithFrame:CGRectMake(viewX, viewY, viewW, viewH)];
-        _imageMove.image = [UIImage imageNamed:@"STQRCodeController.bundle/st_scanLine@2x"];
+        UIImage * image = [UIImage imageNamed:[[self myBundle] pathForResource:@"st_scanLine@2x" ofType:@"png"]];
+        _imageMove.image = image;
     }
     return _imageMove;
 }
@@ -328,8 +330,10 @@
 {
     if (!_buttonTurn) {
         _buttonTurn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_buttonTurn setBackgroundImage:[UIImage imageNamed:@"STQRCodeController.bundle/st_lightSelect@2x"] forState:UIControlStateNormal];
-        [_buttonTurn setBackgroundImage:[UIImage imageNamed:@"STQRCodeController.bundle/st_lightNormal@2x"] forState:UIControlStateSelected];
+        UIImage * image_1 = [UIImage imageNamed:[[self myBundle] pathForResource:@"st_lightSelect@2x" ofType:@"png"]];
+        UIImage * image_2 = [UIImage imageNamed:[[self myBundle] pathForResource:@"st_lightNormal@2x" ofType:@"png"]];
+        [_buttonTurn setBackgroundImage:image_1 forState:UIControlStateNormal];
+        [_buttonTurn setBackgroundImage:image_2 forState:UIControlStateSelected];
         [_buttonTurn sizeToFit];
         [_buttonTurn addTarget:self action:@selector(turnTorchEvent:) forControlEvents:UIControlEventTouchUpInside];
         self.buttonTurn.center = CGPointMake(self.imageScanZone.center.x, CGRectGetMaxY(self.imageScanZone.frame) + 100);
@@ -418,6 +422,17 @@
         [self startAnimation];
         
     }];
+}
+
+
+/**
+ 获取图片资源的Bundle路径
+
+ @return bundle
+ */
+- (NSBundle *)myBundle {
+    //获取当前类的NSBundle
+    return [NSBundle bundleWithPath:[[NSBundle bundleForClass:[LXQRCode_VC class]] pathForResource:@"LXQRCodeResources" ofType:@"bundle"]];
 }
 
 
