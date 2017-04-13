@@ -1,5 +1,5 @@
-# LXQRCodePods
-## It's a simple demo about QRCode. 可以扫描二维码、以及识别图片中的二维码（原生）
+# LXQRCodePods（原生）
+## It's a simple demo about QRCode. 可以扫描二维码、以及识别图片中的二维码
 
 ## 最新版本：0.0.5
 
