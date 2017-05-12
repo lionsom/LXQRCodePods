@@ -18,18 +18,24 @@
 ```
     #import "LXQRCode_VC.h"
 ```
-    
+
+#### 三种数据传送方式
+*  LXQRCodeReturnResultType_Common = 0,    // 1.向下一个界面进行数据传值
+*  LXQRCodeReturnResultType_Delegate = 1,  // 2.利用代理向上个界面传值
+*  LXQRCodeReturnResultType_block = 2      // 3.利用block向上一个界面传值
+
+   
 2.2 在点击事件回调中 
-* 方式一：不需要Delegate
+* 方式一：单向传值 - LXQRCodeReturnResultType_Common<br>
 ```
     LXQRCode_VC * QRCodeVC = [[LXQRCode_VC alloc]init];
-    QRCodeVC.isDelegate = NO;
-//    QRCodeVC.delegate = self; //暂时不需要代理
-    UINavigationController *navVC = [[UINavigationController alloc]initWithRootViewController:QRCodeVC];
+    QRCodeVC.LXQRCodeReturnResultType = LXQRCodeReturnResultType_Common;
+    UINavigationController *navVC = [[UINavigationController alloc]initWithRootViewController:QRCodeVC];
+
     [self presentViewController:navVC animated:YES completion:^{
     }];
 ```
-* 方式二：需要delegate<br>
+* 方式二：需要delegate - LXQRCodeReturnResultType_Delegate<br>
 
 ** 添加代理<br>
 ```
@@ -48,11 +54,31 @@
 ```
     #pragma mark -- Delegate
     - (void)qrcodeController:(LXQRCode_VC *)qrcodeController readerScanResult:(NSString *)readerScanResult type:(LXQRCodeResultType)resultType
-    {
-        NSLog(@"FirstViewController == %@", readerScanResult);
-        NSLog(@"FirstViewController == %lu", (unsigned long)resultType);
+{
+    if (resultType == LXQRCodeResultTypeSuccess) {
+        NSLog(@"FirstViewController  Success == %@",readerScanResult);
+    }else {
+        NSLog(@"FirstViewController  fail == %@",readerScanResult);
     }
+}
 ```
+
+* 方式三：block传值 - LXQRCodeReturnResultType_block<br>
+```
+    LXQRCode_VC * QRCodeVC = [[LXQRCode_VC alloc]init];
+    QRCodeVC.LXQRCodeReturnResultType = LXQRCodeReturnResultType_block;
+    UINavigationController *navVC = [[UINavigationController alloc]initWithRootViewController:QRCodeVC];
+    
+    QRCodeVC.callBackBlock = ^(NSString * QRCode_Result){
+        NSLog(@"Block Get is %@",QRCode_Result);
+    };
+    
+    [self presentViewController:navVC animated:YES completion:^{
+    }];
+
+```
+
+欢迎指正批评！！！<br>
 
 ### 在此参考了GitHub上的一些项目，如有侵权，请及时与我联系。<br>
 ### 邮箱：lionsom_lin@qq.com <br>
