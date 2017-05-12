@@ -160,7 +160,7 @@
     // 2. 删除预览图层
     [self.previewLayer removeFromSuperlayer];
     
-    NSLog(@"metadataObjects == %@", metadataObjects);
+//    NSLog(@"metadataObjects == %@", metadataObjects);
     // 3. 设置界面显示扫描结果
     
     if (metadataObjects.count > 0) {
@@ -170,17 +170,25 @@
         
         NSString * result = obj.stringValue;
         
-        //是否走代理通知
-        if (_isDelegate) {
+        //传值操作
+        if( self.LXQRCodeReturnResultType == LXQRCodeReturnResultType_Common ){
+            //1.基本的向后传值
+            ShowQRCodeResult_VC * showView = [[ShowQRCodeResult_VC alloc]init];
+            showView.QRMessageStr = result;
+            [self.navigationController pushViewController:showView animated:YES];
+        
+        }else if ( self.LXQRCodeReturnResultType == LXQRCodeReturnResultType_Delegate ) {
+            //2.是否走代理通知
             if ([self.delegate respondsToSelector:@selector(qrcodeController:readerScanResult:type:)]) {
                 [self.delegate qrcodeController:self readerScanResult:result type:LXQRCodeResultTypeSuccess];
                 //返回
                 [self backEvent];
             }
-        }else {
-            ShowQRCodeResult_VC * showView = [[ShowQRCodeResult_VC alloc]init];
-            showView.QRMessageStr = result;
-            [self.navigationController pushViewController:showView animated:YES];
+        }else if( self.LXQRCodeReturnResultType == LXQRCodeReturnResultType_block ) {
+            //3.利用block传值
+            self.callBackBlock(result);
+            //返回
+            [self backEvent];
         }
     }
 }
@@ -375,37 +383,58 @@
         
         NSArray *features = [detector featuresInImage:[CIImage imageWithCGImage:image.CGImage]];
         if (features.count) {
+        //扫描成功-有数据
             for (int index = 0; index < [features count]; index ++) {
                 CIQRCodeFeature *feature = [features objectAtIndex:index];
                 NSString *scannedResult = feature.messageString;
                 NSLog(@"result:%@",scannedResult);
                 
-                //是否走代理通知
-                if (_isDelegate) {
+                //传值操作
+                if( self.LXQRCodeReturnResultType == LXQRCodeReturnResultType_Common ){
+                    //1.基本的向后传值
+                    ShowQRCodeResult_VC * showView = [[ShowQRCodeResult_VC alloc]init];
+                    showView.QRMessageStr = scannedResult;
+                    [self.navigationController pushViewController:showView animated:YES];
+                    
+                }else if ( self.LXQRCodeReturnResultType == LXQRCodeReturnResultType_Delegate ) {
+                    //2.是否走代理通知
                     if ([self.delegate respondsToSelector:@selector(qrcodeController:readerScanResult:type:)]) {
                         [self.delegate qrcodeController:self readerScanResult:scannedResult type:LXQRCodeResultTypeSuccess];
                         //返回
                         [self backEvent];
                     }
-                }else {
-                    ShowQRCodeResult_VC * showView = [[ShowQRCodeResult_VC alloc]init];
-                    showView.QRMessageStr = scannedResult;
-                    [self.navigationController pushViewController:showView animated:YES];
-                }
-            }
-        }else {
-            //是否走代理通知
-            if (_isDelegate) {
-                if ([self.delegate respondsToSelector:@selector(qrcodeController:readerScanResult:type:)]) {
-                    [self.delegate qrcodeController:self readerScanResult:@"" type:LXQRCodeResultTypeNoInfo];
+                }else if( self.LXQRCodeReturnResultType == LXQRCodeReturnResultType_block ) {
+                    //3.利用block传值
+                    self.callBackBlock(scannedResult);
                     //返回
                     [self backEvent];
                 }
-            }else {
+
+            }
+        }else {
+        //扫描失败-无数据
+            
+            //传值操作
+            if( self.LXQRCodeReturnResultType == LXQRCodeReturnResultType_Common ){
+                //1.基本的向后传值
                 ShowQRCodeResult_VC * showView = [[ShowQRCodeResult_VC alloc]init];
                 showView.QRMessageStr = @"无数据";
                 [self.navigationController pushViewController:showView animated:YES];
+                
+            }else if ( self.LXQRCodeReturnResultType == LXQRCodeReturnResultType_Delegate ) {
+                //2.是否走代理通知
+                if ([self.delegate respondsToSelector:@selector(qrcodeController:readerScanResult:type:)]) {
+                    [self.delegate qrcodeController:self readerScanResult:@"无数据" type:LXQRCodeResultTypeSuccess];
+                    //返回
+                    [self backEvent];
+                }
+            }else if( self.LXQRCodeReturnResultType == LXQRCodeReturnResultType_block ) {
+                //3.利用block传值
+                self.callBackBlock(@"无数据");
+                //返回
+                [self backEvent];
             }
+            
         }
     }];
 }

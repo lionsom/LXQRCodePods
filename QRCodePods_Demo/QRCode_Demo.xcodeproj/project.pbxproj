@@ -15,6 +15,9 @@
 		461F30431E9666260006E8F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 461F30411E9666260006E8F3 /* Main.storyboard */; };
 		461F30451E9666260006E8F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 461F30441E9666260006E8F3 /* Assets.xcassets */; };
 		461F30481E9666260006E8F3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 461F30461E9666260006E8F3 /* LaunchScreen.storyboard */; };
+		464547B61EC5686700340AE9 /* MBProgressHUD+NJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 464547B21EC5686700340AE9 /* MBProgressHUD+NJ.m */; };
+		464547B71EC5686700340AE9 /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 464547B31EC5686700340AE9 /* MBProgressHUD.bundle */; };
+		464547B81EC5686700340AE9 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 464547B51EC5686700340AE9 /* MBProgressHUD.m */; };
 		46649C3C1E9C7E6800B61B37 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46649C3B1E9C7E6800B61B37 /* AVFoundation.framework */; };
 		46C06A261E9CFD6E002ED310 /* LXQRCode_VC.m in Sources */ = {isa = PBXBuildFile; fileRef = 46C06A221E9CFD6E002ED310 /* LXQRCode_VC.m */; };
 		46C06A271E9CFD6E002ED310 /* ShowQRCodeResult_VC.m in Sources */ = {isa = PBXBuildFile; fileRef = 46C06A241E9CFD6E002ED310 /* ShowQRCodeResult_VC.m */; };
@@ -34,6 +37,11 @@
 		461F30441E9666260006E8F3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		461F30471E9666260006E8F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		461F30491E9666260006E8F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		464547B11EC5686700340AE9 /* MBProgressHUD+NJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+NJ.h"; sourceTree = "<group>"; };
+		464547B21EC5686700340AE9 /* MBProgressHUD+NJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+NJ.m"; sourceTree = "<group>"; };
+		464547B31EC5686700340AE9 /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
+		464547B41EC5686700340AE9 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		464547B51EC5686700340AE9 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		46649C3B1E9C7E6800B61B37 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		46C06A211E9CFD6E002ED310 /* LXQRCode_VC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXQRCode_VC.h; path = LXQRCode/LXQRCode_VC.h; sourceTree = "<group>"; };
 		46C06A221E9CFD6E002ED310 /* LXQRCode_VC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXQRCode_VC.m; path = LXQRCode/LXQRCode_VC.m; sourceTree = "<group>"; };
@@ -73,6 +81,7 @@
 		461F30341E9666260006E8F3 /* QRCode_Demo */ = {
 			isa = PBXGroup;
 			children = (
+				464547B01EC5686700340AE9 /* MBProgressHUD */,
 				46649C391E9C7E0200B61B37 /* LXQRCode */,
 				461F30381E9666260006E8F3 /* AppDelegate.h */,
 				461F30391E9666260006E8F3 /* AppDelegate.m */,
@@ -95,6 +104,18 @@
 				461F30361E9666260006E8F3 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		464547B01EC5686700340AE9 /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				464547B11EC5686700340AE9 /* MBProgressHUD+NJ.h */,
+				464547B21EC5686700340AE9 /* MBProgressHUD+NJ.m */,
+				464547B31EC5686700340AE9 /* MBProgressHUD.bundle */,
+				464547B41EC5686700340AE9 /* MBProgressHUD.h */,
+				464547B51EC5686700340AE9 /* MBProgressHUD.m */,
+			);
+			path = MBProgressHUD;
 			sourceTree = "<group>";
 		};
 		46649C391E9C7E0200B61B37 /* LXQRCode */ = {
@@ -178,6 +199,7 @@
 			files = (
 				461F30481E9666260006E8F3 /* LaunchScreen.storyboard in Resources */,
 				460DAD9E1E9E0724006AC410 /* LXQRCodeResources.bundle in Resources */,
+				464547B71EC5686700340AE9 /* MBProgressHUD.bundle in Resources */,
 				461F30451E9666260006E8F3 /* Assets.xcassets in Resources */,
 				461F30431E9666260006E8F3 /* Main.storyboard in Resources */,
 			);
@@ -192,10 +214,12 @@
 			files = (
 				461F30401E9666260006E8F3 /* SecondViewController.m in Sources */,
 				461F303A1E9666260006E8F3 /* AppDelegate.m in Sources */,
+				464547B61EC5686700340AE9 /* MBProgressHUD+NJ.m in Sources */,
 				46C06A271E9CFD6E002ED310 /* ShowQRCodeResult_VC.m in Sources */,
 				461F303D1E9666260006E8F3 /* FirstViewController.m in Sources */,
 				46C06A261E9CFD6E002ED310 /* LXQRCode_VC.m in Sources */,
 				461F30371E9666260006E8F3 /* main.m in Sources */,
+				464547B81EC5686700340AE9 /* MBProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
