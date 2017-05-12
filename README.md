@@ -24,8 +24,7 @@
 *  LXQRCodeReturnResultType_Delegate = 1,  // 2.利用代理向上个界面传值
 *  LXQRCodeReturnResultType_block = 2      // 3.利用block向上一个界面传值
 
-   
-2.2 在点击事件回调中 
+2.2 具体代码实现<br>
 * 方式一：单向传值 - LXQRCodeReturnResultType_Common<br>
 ```
     LXQRCode_VC * QRCodeVC = [[LXQRCode_VC alloc]init];
