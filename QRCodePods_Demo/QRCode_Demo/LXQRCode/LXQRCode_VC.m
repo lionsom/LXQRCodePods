@@ -90,7 +90,44 @@
         // 3. 显示
         [self presentViewController:alert animated:YES completion:nil];
     }
+    
+    //通知
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(BecomeActiveCallBack)
+                                                 name:UIApplicationDidBecomeActiveNotification object:nil];
+    
 }
+
+
+/**
+ dealloc 移除监听
+ */
+-(void)dealloc {
+    NSLog(@"%s",__func__);
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+
+/**
+ APP重新活跃后调用:
+ 将移动条重新加载下
+ */
+-(void)BecomeActiveCallBack {
+    
+    //结束动画
+    [self.imageMove.layer removeAllAnimations];
+    //先删除super
+    [self.imageMove removeFromSuperview];
+    
+    //第三种：最常用
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        // 移动条重新加载
+        [self.view addSubview:self.imageMove];
+        
+        [self startAnimation];
+    });//定制了延时执行的任务，不会阻塞线程，效率较高（推荐使用）
+}
+
 
 /**
  进入界面后，再进行加载
