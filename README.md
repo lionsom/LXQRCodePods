@@ -1,7 +1,11 @@
 # LXQRCodePods（原生）
 ## It's a simple demo about QRCode. 可以扫描二维码、以及识别图片中的二维码
 
-## 最新版本：0.0.5
+## 最新版本：0.0.7
+修正QRCode从后台进入后的界面小问题。
+
+版本：0.0.6
+1、添加了多种传值方式：block、delegate等
 
 ### 第一步：导入<br>
 1.1 导入CocoaPods<br>
